@@ -1,1 +1,27 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.css";
+
+.jumbotron {
+  color: #fff;
+  margin-bottom: 0 !important;
+  border-radius: 0 !important;
+  background-size: cover;
+  min-height: 100%;
+  background: linear-gradient(0deg, rgba(255, 0, 150, 0.3), rgba(255, 0, 150, 0.4)), url('assets/images/bg.jpeg');
+}
+
+.hero_section {
+  margin-top: 5rem;
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+  .hero_section {
+    margin-top: 6rem;
+  }
+}
+
+.spinner-border {
+  margin-left: 48%;
+  margin-bottom: 20px;
+}

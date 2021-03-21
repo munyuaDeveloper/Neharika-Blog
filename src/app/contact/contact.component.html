@@ -1,0 +1,48 @@
+<div class="">
+  <div class="container-fluid jumbotron">
+    <div class="row">
+      <div class="col-10 pt-5">
+        <h3 class="border-bottom-2 text-center">CONTACT US</h3>
+      </div>
+    </div>
+  </div>
+
+  <div class="container my-5">
+    <div class="row">
+      <div class="col-12 border bg-light">
+        <h2 class="pt-1">Get In Touch</h2>
+        <form [formGroup]="contactForm" class="py-5">
+          <div class="form-group">
+            <input class="form-control" formControlName="email" type="email" placeholder="Email" name="email">
+          </div>
+          <div class="form-group">
+            <input class="form-control" formControlName="subject" type="email" placeholder="Subject" name="subject">
+          </div>
+          <div class="form-group">
+            <textarea rows="5" class="form-control" formControlName="message" type="text" placeholder="Subject"
+                      name="subject"></textarea>
+          </div>
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-sm-6">
+                <h4 class="text-primary">Follow Us On</h4>
+                <a class="list-inline-item">
+                  <i class="fa fa-whatsapp"></i>
+                </a>
+                <a class="list-inline-item"> <i class="fa fa-facebook text-primary"></i>
+                </a>
+                <a class="list-inline-item">
+                  <i class="fa fa-instagram text-danger"></i>
+                </a>
+
+              </div>
+              <div class="col-sm-6 text-center">
+                <button class="btn btn-lg btn-success float-right">Send Message</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
