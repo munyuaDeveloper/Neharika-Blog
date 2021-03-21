@@ -44,12 +44,7 @@
         </div>
       </div>
       <div class="col-sm-3">
-        <form>
-          <div class="form-group">
-            <input class="form-control" type="text" placeholder="Search">
-          </div>
-        </form>
-        <h3>Latest News</h3>
+        <h3 >Latest Posts</h3>
         <div *ngFor="let post of posts">
           <a [routerLink]="['/blog', post.id]">
             <h5>{{post?.title}}</h5>
