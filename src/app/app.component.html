@@ -54,6 +54,13 @@
        <input class="form-control" formControlName="image" type="text" placeholder="Image URL" name="image">
      </div>
      <div class="form-group">
+       <label>Select Blog Category</label>
+       <select class="form-control" formControlName="category">
+         <option *ngFor="let cat of categories" [value]="cat">{{cat | titlecase}}</option>
+       </select>
+     </div>
+
+     <div class="form-group">
        <label >Description</label>
        <textarea class="form-control" rows="5" formControlName="description" type="text" placeholder="Description" name="description"></textarea>
      </div>
@@ -84,9 +91,9 @@
             <p>Latest Blogs</p>
           </div>
           <ul class="list-unstyled link-list">
-            <li><a >Fruits</a></li>
-            <li><a >Vegetables</a></li>
-            <li><a >Meat</a></li>
+            <li><a  routerLink="/home">Fruits</a></li>
+            <li><a  routerLink="/home">Vegetables</a></li>
+            <li><a  routerLink="/home">Meat</a></li>
           </ul>
         </div>
         <div class="col-md-3">

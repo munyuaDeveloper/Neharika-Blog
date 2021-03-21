@@ -15,6 +15,8 @@ export class BlogDetailComponent implements OnInit {
   postDetail: PostDetails;
   postId = '';
   posts: PostDetails[];
+  categories = ['MEAT', 'VEGETABLES', 'FRUITS', 'GRAINS'];
+
 
   constructor(private modalService: NgbModal,
               private formBuilder: FormBuilder,
@@ -31,6 +33,7 @@ export class BlogDetailComponent implements OnInit {
       description: ['', Validators.required],
       author: ['', Validators.required],
       image: ['', Validators.required],
+      category: ['', Validators.required],
       date_created: [null]
     });
     this.blogService.getAllPosts().subscribe(res => {
@@ -69,6 +72,7 @@ export class BlogDetailComponent implements OnInit {
         description: this.postDetail.description,
         author: this.postDetail.author,
         image: this.postDetail.image,
+        category: this.postDetail.category,
       });
     }, error => {
       console.log(error);

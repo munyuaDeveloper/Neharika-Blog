@@ -15,6 +15,8 @@ export class AppComponent implements OnInit {
   CreatePostForm: FormGroup;
   posts: PostDetails[];
 
+  categories = ['MEAT', 'VEGETABLES', 'FRUITS', 'GRAINS'];
+
   constructor(private modalService: NgbModal,
               private formBuilder: FormBuilder,
               private blogService: BlogService,
@@ -27,7 +29,8 @@ export class AppComponent implements OnInit {
       description: ['', Validators.required],
       author: ['', Validators.required],
       image: ['', Validators.required],
-      date_created: [null]
+      date_created: [null],
+      category: ['']
     });
     this.blogService.getAllPosts().subscribe(res => {
       this.posts = res;

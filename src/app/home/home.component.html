@@ -14,6 +14,38 @@
     <div class="row">
       <div class="col-sm-9 mb-3">
         <div class="container-fluid">
+          <h4  *ngIf="filteredList.length !== 0 && searchCategory">{{searchCategory | titlecase}} Category Posts</h4>
+          <div *ngIf="filteredList.length !== 0 && searchCategory" class="divider"></div>
+          <div class="row">
+            <div class="col-sm-6 mb-3" *ngFor="let post of filteredList">
+              <div class="card">
+                <a [routerLink]="['/blog', post.id]">
+                  <img [src]="post.image" class="card-img-top" alt="...">
+                </a>
+                <div class="card-body">
+                  <div class="container-fluid">
+                    <div class="row">
+                      <div class="col-12">
+                        <a [routerLink]="['/blog', post.id]"><h3 class="text-uppercase">
+                          {{post.title}}
+                        </h3></a>
+                        <span class="small text-muted ml-1"><i class="fa fa-user"></i>  Post by {{post.author}} On <i
+                          class="fa fa-clock-o"></i> {{post.date_created | date: 'mediumDate'}}</span>
+
+                        <p>{{(post.description.length > 6) ? (post.description | slice:0:200) + '..' : (post.description)}}</p>
+                      </div>
+                    </div>
+                    <button class="btn btn-primary small float-right" [routerLink]="['/blog', post.id]"><i
+                      class="fa fa-eye"></i> Read More
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <p *ngIf="filteredList.length === 0 && showMessage" class="text-danger text-center ml-3 lead">No posts found in {{ searchCategory | titlecase}} category!</p>
+          </div>
+          <h4>All Posts</h4>
+          <div class="divider"></div>
           <div class="row">
             <div class="col-sm-6 mb-3" *ngFor="let post of posts">
               <div class="card">
@@ -40,12 +72,21 @@
                 </div>
               </div>
             </div>
+            <p *ngIf="posts.length === 0" class="text-danger text-center lead">No post found!</p>
           </div>
         </div>
       </div>
       <div class="col-sm-3">
-        <h3 >Latest Posts</h3>
-        <div *ngFor="let post of posts">
+        <h4>Filter by Category</h4>
+        <div class="divider"></div>
+        <div class="ml-2" *ngFor="let category of categories">
+          <a class="text-primary" (click)="filterByCategory(category)">
+            <h5>{{category | titlecase}}</h5>
+          </a>
+        </div>
+        <h3>Latest Posts</h3>
+        <div class="divider"></div>
+        <div class="ml-2" *ngFor="let post of posts">
           <a [routerLink]="['/blog', post.id]">
             <h5>{{post?.title}}</h5>
           </a>

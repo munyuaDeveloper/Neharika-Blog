@@ -5,4 +5,5 @@ export interface PostDetails {
   date_created: string;
   image: string;
   description: string;
+  category: string;
 }
